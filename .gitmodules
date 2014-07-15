@@ -1,0 +1,6 @@
+[submodule "csl"]
+	path = csl
+	url = git://github.com/citation-style-language/styles-distribution.git
+[submodule "csl-locales"]
+	path = csl-locales
+	url = git://github.com/citation-style-language/locales.git
