@@ -14,7 +14,10 @@
     "citeproc"
   ],
   "author": "gauthiier",
-  "license": "MIT",
+  "license": [ {
+    "type" : "MIT",
+    "url" : "http://github.com/gauthiier/bibliographe/blob/master/LICENSE"
+  } ],  
   "bugs": {
     "url": "https://github.com/gauthiier/bibliographe/issues"
   },
