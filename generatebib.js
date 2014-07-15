@@ -68,7 +68,7 @@ var conf_default = {
     sort : true
 };
 
-var conf = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+var conf = (fs.existsSync('config.json') ? JSON.parse(fs.readFileSync('config.json', 'utf8')) : "");
 conf = _.extend({}, conf_default, conf);
 
 var locales = {
