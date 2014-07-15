@@ -1,0 +1,27 @@
+{
+  "name": "bibliographe",
+  "version": "0.0.0",
+  "description": "bibliographic processor util",
+  "main": "generatebib.js",
+  "scripts": {
+    "test": "echo \"HAHA! NONO!\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gauthiier/bibliographe.git"
+  },
+  "keywords": [
+    "citeproc"
+  ],
+  "author": "gauthiier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gauthiier/bibliographe/issues"
+  },
+  "homepage": "https://github.com/gauthiier/bibliographe",
+  "private": "true",
+  "dependencies" : {
+    "underscore": "1.6.x",
+    "jsdom": "0.5.x"
+  }
+}

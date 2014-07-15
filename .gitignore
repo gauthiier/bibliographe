@@ -1,3 +1,13 @@
 .DS_Store
+
+#submodules 
 csl/
 csl-locales/
+
+#node
+node_modules
+logs
+*.log
+
+#npm
+npm-debug.log
