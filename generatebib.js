@@ -125,13 +125,17 @@ for (var i = 0; i < process.argv.length; i++) {
     }
 }
 
-var style = fs.readFileSync(style_file, 'utf8');
-var data = JSON.parse(fs.readFileSync(data_file, 'utf8'));
-var input = (input_file) ? fs.readFileSync(input_file, 'utf8') : "";
+var style = fs.existsSync(style_file) ? fs.readFileSync(style_file, 'utf8') : "";
+var data = (data_file && fs.existsSync(data_file)) ? JSON.parse(fs.readFileSync(data_file, 'utf8')) : "";
+var input = (input_file && fs.existsSync(input_file)) ? fs.readFileSync(input_file, 'utf8') : "";
+var fragments = (frags_file && fs.existsSync(frags_file)) ? JSON.parse(fs.readFileSync(frags_file, 'utf8')) : [{token: "#bib", items: conf.items}];
 
-if(!(data instanceof Object)) {
+if(!(data)) {
     console.log("unxpected input data --- see refactorbib.js");
     exit(0);
+} else if(!(style)) {
+    console.log("unxpected style --- please specify a valid csl style and make sure you have it installed localy.");
+    exit(0);    
 }
 
 var sys = {
@@ -144,12 +148,6 @@ var sys = {
         return this.items[id];
     }
 };
-
-if(frags_file) {
-    fragments = JSON.parse(fs.readFileSync(frags_file, 'utf8'));
-} else {
-    fragments = [{token: "#bib", items: conf.items}];
-}
 
 var engine = new CSL.Engine(sys, style, conf.locale, conf.locale);
 
