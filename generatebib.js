@@ -62,13 +62,13 @@ var conf_default = {
     locale : "en-US",
     style : "chicago-note-bibliography",
     output : "html",
-    csl_path : "csl/",
-    csl_locales_path : "csl-locales/",
+    csl_path : __dirname + "/csl/",
+    csl_locales_path : __dirname + "/csl-locales/",
     items : "all",
     sort : true
 };
 
-var conf = (fs.existsSync('config.json') ? JSON.parse(fs.readFileSync('config.json', 'utf8')) : "");
+var conf = (fs.existsSync(__dirname + '/config.json') ? JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf8')) : "");
 conf = _.extend({}, conf_default, conf);
 
 var locales = {
@@ -78,7 +78,7 @@ var locales = {
     'French': fs.readFileSync(conf.csl_locales_path + 'locales-fr-FR.xml', 'utf8')
     };
 
-var style_file = conf.csl_path + conf.style + '.csl';
+var style_file = "";
 var data_file = "";
 var input_file = "";
 var frags_file = "";
@@ -96,7 +96,7 @@ for (var i = 0; i < process.argv.length; i++) {
             break;            
 
         case "--style":
-            style_file = process.argv[++i];
+            conf.style = process.argv[++i];
             break;
 
         case "--items":
@@ -125,6 +125,7 @@ for (var i = 0; i < process.argv.length; i++) {
     }
 }
 
+style_file = conf.csl_path + conf.style + '.csl';
 var style = fs.existsSync(style_file) ? fs.readFileSync(style_file, 'utf8') : "";
 var data = (data_file && fs.existsSync(data_file)) ? JSON.parse(fs.readFileSync(data_file, 'utf8')) : "";
 var input = (input_file && fs.existsSync(input_file)) ? fs.readFileSync(input_file, 'utf8') : "";
