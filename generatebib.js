@@ -72,10 +72,10 @@ var conf = (fs.existsSync('config.json') ? JSON.parse(fs.readFileSync('config.js
 conf = _.extend({}, conf_default, conf);
 
 var locales = {
-    'en-US': fs.readFileSync('csl-locales/locales-en-US.xml', 'utf8'),
-    'English': fs.readFileSync('csl-locales/locales-en-US.xml', 'utf8'),
-    'fr-FR': fs.readFileSync('csl-locales/locales-fr-FR.xml', 'utf8'),
-    'French': fs.readFileSync('csl-locales/locales-fr-FR.xml', 'utf8')
+    'en-US': fs.readFileSync(conf.csl_locales_path + 'locales-en-US.xml', 'utf8'),
+    'English': fs.readFileSync(conf.csl_locales_path + 'locales-en-US.xml', 'utf8'),
+    'fr-FR': fs.readFileSync(conf.csl_locales_path + 'locales-fr-FR.xml', 'utf8'),
+    'French': fs.readFileSync(conf.csl_locales_path + 'locales-fr-FR.xml', 'utf8')
     };
 
 var style_file = conf.csl_path + conf.style + '.csl';
@@ -186,6 +186,13 @@ for(var i = 0; i < fragments.length; i++) {
             html = "<html>\n<head>\t<meta charset=\"utf-8\">\n</head>\n<body>" + html + "\n</body>";
             output += html;
         }
+    } else if(conf.output == "txt") {
+        var txt = totxt(bib);
+        if(input) {
+            output = inject(output, frag.token, txt);
+        } else {
+            output += txt;
+        }
     }     
 
 }
@@ -202,8 +209,7 @@ function inject(data, token, input) {
 function tomarkdown(bib) {
     var md = "";
     _.each(bib[1], function (e) {
-        md += (">" + e);
-        md += "\n>\n";
+        md += (">" + escape_csl_entry(e).replace("<i>", "*").replace("</i>", "*") + "\n");
     });    
     return md;
 }
@@ -215,6 +221,22 @@ function tohtml(bib) {
     });
     html += bib[0].bibend + "\n";
     return html;
+}
+
+function totxt(bib) {
+    var txt = "";
+    _.each(bib[1], function (e) {
+        txt += escape_csl_entry(escape_italic(e)) + "\n";
+    });    
+    return txt;
+}
+
+function escape_csl_entry(b) {
+    return b.replace("<div class=\"csl-entry\">", "").replace("</div>", "");
+}
+
+function escape_italic(b) {
+    return b.replace("<i>", "").replace("</i>", "");   
 }
 
 
