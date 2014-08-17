@@ -33,3 +33,8 @@ I???+~:,,,...    .=:=~I$$+,         .$7?+++++=+==+~,,:==+?78DDDDDDDO88OZOO88O888
 ..... .... . ,~?7OZ7..:~I+ZZOO$OOOZZ$+7++?+??I777$$Z7I?~Z8D8OO$Z888O8888ZOZOZOO8
 ,.....,~~==:=?$ZOZ7 .,~7IZZOZZZZOOOZO$I$Z$$Z$Z$ZZ7$I+==~DDDN8DDO$O88D8DDZO8OZ888
 =+=:~::=~~:+$ZZZ$+...I77$OZ$$IIZ$?$Z7=======~=++??==,::=D8D88D8D8ZOODOOOZZ8ZOaOO
+
+* global configs (re: ~/.bibliographe)
+* refactor cli / lib
+* system wide installation
+* man page
