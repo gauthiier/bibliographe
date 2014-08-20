@@ -59,6 +59,7 @@
 
 var data_file = "";
 var index = false;
+var print = false;
 
 for (var i = 0; i < process.argv.length; i++) {
     switch(process.argv[i])
@@ -68,6 +69,11 @@ for (var i = 0; i < process.argv.length; i++) {
             break;
         case "--index":
             index = true;
+            break;            
+        case "--print":
+            print = true;
+            break;
+        default:
             break;            
 	}
 }
@@ -103,7 +109,13 @@ for (var i = 0; i < alldata.length; i++) {
 
 if(index) {	
     items.sort();
-    console.log(JSON.stringify(items, null, 2));
+    if(print) {
+        _.each(items, function (i) {
+            console.log('> ' + i);
+        });
+    } else {
+        console.log(JSON.stringify(items, null, 2));
+    }    
 }
 
 if(!index)

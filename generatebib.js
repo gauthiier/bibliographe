@@ -92,7 +92,7 @@ for (var i = 0; i < process.argv.length; i++) {
 
         case "--output":
             var o = process.argv[++i];
-            if(o == 'html' || o == 'md') conf.output = o;
+            if(o == 'html' || o == 'md' || o == 'txt') conf.output = o;
             break;            
 
         case "--style":
