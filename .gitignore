@@ -1,8 +1,8 @@
 .DS_Store
 
 #submodules 
-csl/
-csl-locales/
+csl/*
+csl-locales/*
 
 #node
 node_modules
