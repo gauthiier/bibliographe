@@ -2,7 +2,7 @@
   "name": "bibliographe",
   "version": "0.0.1",
   "description": "bibliographic processor util",
-  "files": ["lib", "csl", "csl-locales"],
+  "files": ["bibliographe-cli.js", "lib", "csl", "csl-locales"],
   "bin": "./bibliographe-cli.js",  
   "scripts": {
     "test": "echo \"HAHA! NONO!\" && exit 1"

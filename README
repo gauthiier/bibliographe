@@ -34,7 +34,30 @@ I???+~:,,,...    .=:=~I$$+,         .$7?+++++=+==+~,,:==+?78DDDDDDDO88OZOO88O888
 ,.....,~~==:=?$ZOZ7 .,~7IZZOZZZZOOOZO$I$Z$$Z$Z$ZZ7$I+==~DDDN8DDO$O88D8DDZO8OZ888
 =+=:~::=~~:+$ZZZ$+...I77$OZ$$IIZ$?$Z7=======~=++??==,::=D8D88D8D8ZOODOOOZZ8ZOaOO
 
-* global configs (re: ~/.bibliographe)
+Installation:
+
+$> git clone --recursive https://github.com/gauthiier/bibliographe.git
+
+$> npm link
+
+Usage: bibliographe [options]
+
+Options:
+	--help:		show this help message and exit
+	--data DATA
+			CSL json file to convert
+	--output {'html', 'md', 'txt'}
+			output format - html, markdown or plain text
+			default: html
+	--style STYLE
+			processor output style 
+			see https://github.com/citation-style-language/styles-distribution
+			default: chicago-note-bibliography
+	--items [list]
+			list of items from the data input file to convert. 
+			ex:["Guattari1980", "Lazzarato2014"]
+			default: all
+
+Todo:
 * refactor cli / lib
-* system wide installation
-* man page
+* man page / better doc
