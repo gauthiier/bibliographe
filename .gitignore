@@ -1,9 +1,5 @@
 .DS_Store
 
-#submodules 
-csl/*
-csl-locales/*
-
 #node
 node_modules
 logs
