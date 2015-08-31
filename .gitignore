@@ -1,5 +1,3 @@
-.DS_Store
-
 #node
 node_modules
 logs
@@ -7,3 +5,5 @@ logs
 
 #npm
 npm-debug.log
+
+.DS_Store
